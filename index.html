@@ -41,18 +41,20 @@
     <!-- 头部导航 -->
     <header class="fixed top-0 left-0 right-0 bg-white bg-opacity-95 shadow-sm z-50">
         <div class="container mx-auto px-4 py-6">
-            <h1 class="text-2xl md:text-3xl font-bold mb-4 md:mb-0 text-primary">个人主页</h1>
-            <nav class="flex flex-wrap gap-x-6 gap-y-2">
-                <a href="#" class="nav-link nav-item-active py-1 text-gray-600 hover:text-primary transition-colors duration-300" data-page="about">关于我</a>
-                <a href="#" class="nav-link py-1 text-gray-600 hover:text-primary transition-colors duration-300" data-page="papers">测试项目</a>
-                <a href="#" class="nav-link py-1 text-gray-600 hover:text-primary transition-colors duration-300" data-page="awards">参与项目</a>
-                <a href="#" class="nav-link py-1 text-gray-600 hover:text-primary transition-colors duration-300" data-page="students">发表论文</a>
+            <!-- 增加标题与选项卡的间距：将mb-4调整为mb-6，md:mb-0调整为md:mb-4 -->
+            <h1 class="text-2xl md:text-3xl font-bold mb-6 md:mb-4 text-primary text-center">个人主页</h1>
+            <!-- 导航菜单居中显示，字号调大 -->
+            <nav class="flex justify-center flex-wrap gap-x-8 gap-y-2">
+                <a href="#" class="nav-link nav-item-active py-1 text-lg md:text-xl text-gray-600 hover:text-primary transition-colors duration-300" data-page="about">关于我</a>
+                <a href="#" class="nav-link py-1 text-lg md:text-xl text-gray-600 hover:text-primary transition-colors duration-300" data-page="papers">测试项目</a>
+                <a href="#" class="nav-link py-1 text-lg md:text-xl text-gray-600 hover:text-primary transition-colors duration-300" data-page="awards">参与项目</a>
+                <a href="#" class="nav-link py-1 text-lg md:text-xl text-gray-600 hover:text-primary transition-colors duration-300" data-page="students">发表论文</a>
             </nav>
         </div>
     </header>
 
-    <!-- 主要内容区 -->
-    <main class="container mx-auto px-4 pt-32 pb-20 min-h-screen">
+    <!-- 主要内容区 - 增加两边留白 -->
+    <main class="max-w-4xl mx-auto px-6 sm:px-8 pt-36 pb-20 min-h-screen"> <!-- 因标题间距增加，微调pt值避免内容被遮挡 -->
         <!-- 关于我页面 -->
         <section id="about" class="page page-transition">
             <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-border text-primary">关于我</h2>
@@ -269,7 +271,7 @@
 
     <!-- 页脚 -->
     <footer class="bg-light py-6 border-t border-border">
-        <div class="container mx-auto px-4 text-center text-gray-600 text-sm">
+        <div class="container mx-auto px-6 text-center text-gray-600 text-sm">
             <p>© XXX年 个人主页 | 保留所有权利</p>
         </div>
     </footer>
