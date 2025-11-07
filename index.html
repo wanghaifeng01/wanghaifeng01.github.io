@@ -34,16 +34,26 @@
             .nav-item-active {
                 border-bottom: 2px solid #4a90e2;
             }
+            .visit-counter {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 100; /* 确保在导航栏上方显示 */
+            }
         }
     </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
+    <!-- 访问次数统计（右上角） -->
+    <div class="visit-counter bg-primary text-white px-4 py-2 rounded-lg shadow-md flex items-center text-sm md:text-base">
+        <i class="fa fa-eye mr-2"></i>
+        <span>访问次数: <span id="counter">0</span></span>
+    </div>
+
     <!-- 头部导航 -->
     <header class="fixed top-0 left-0 right-0 bg-white bg-opacity-95 shadow-sm z-50">
         <div class="container mx-auto px-4 py-6">
-            <!-- 增加标题与选项卡的间距：将mb-4调整为mb-6，md:mb-0调整为md:mb-4 -->
             <h1 class="text-2xl md:text-3xl font-bold mb-6 md:mb-4 text-primary text-center">Haifeng Wang</h1>
-            <!-- 导航菜单居中显示，字号调大 -->
             <nav class="flex justify-center flex-wrap gap-x-8 gap-y-2">
                 <a href="#" class="nav-link nav-item-active py-1 text-lg md:text-xl text-gray-600 hover:text-primary transition-colors duration-300" data-page="about">关于我</a>
                 <a href="#" class="nav-link py-1 text-lg md:text-xl text-gray-600 hover:text-primary transition-colors duration-300" data-page="papers">测试项目</a>
@@ -53,8 +63,8 @@
         </div>
     </header>
 
-    <!-- 主要内容区 - 增加两边留白 -->
-    <main class="max-w-4xl mx-auto px-6 sm:px-8 pt-36 pb-20 min-h-screen"> <!-- 因标题间距增加，微调pt值避免内容被遮挡 -->
+    <!-- 主要内容区 -->
+    <main class="max-w-4xl mx-auto px-6 sm:px-8 pt-36 pb-20 min-h-screen">
         <!-- 关于我页面 -->
         <section id="about" class="page page-transition">
             <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-border text-primary">关于我</h2>
@@ -62,7 +72,7 @@
                 <div class="md:w-1/3">
                     <img src="img.png" 
                          alt="个人照片" 
-                         class="w-full max-w-xs mx-auto md:mx-0 rounded shadow-md">
+                         class="w-full max-w-xs w-64 mx-auto md:mx-0 rounded shadow-md">
                 </div>
                 <div class="md:w-2/3">
                     <ul class="space-y-4">
@@ -70,7 +80,7 @@
                             <i class="fa fa-user-circle-o text-primary mt-1 mr-3"></i>
                             <div>
                                 <strong>基本信息</strong>
-                                <p class="text-gray-600 mt-1">高级工程师，主要从事计量测试技术研究，专注于仪器概念验证、测试评价体系构建等方向。</p>
+                                <p class="text-gray-600 mt-1">助理研究员，主要从事软件测试、软件测评、计量测试技术研究，专注于仪器概念验证、测试评价体系构建等方向。</p>
                             </div>
                         </li>
                         <li class="flex items-start">
@@ -78,9 +88,8 @@
                             <div>
                                 <strong>教育背景</strong>
                                 <ul class="list-disc list-inside text-gray-600 mt-1 ml-2 space-y-1">
-                                    <li>XXX年-XXX年，XXX大学，测控技术与仪器专业，博士学位</li>
-                                    <li>XXX年-XXX年，XXX大学，自动化专业，硕士学位</li>
-                                    <li>XXX年-XXX年，XXX大学，电子信息工程专业，学士学位</li>
+                                    <li>2017年-2022年，北京化工大学，控制科学与工程专业，博士学位</li>
+                                    <li>2013年-2017年，北京化工大学，信息科学与技术专业（数学系），学士学位</li>
                                 </ul>
                             </div>
                         </li>
@@ -89,9 +98,8 @@
                             <div>
                                 <strong>工作经历</strong>
                                 <ul class="list-disc list-inside text-gray-600 mt-1 ml-2 space-y-1">
-                                    <li>XXX年至今，XXX研究院，测试技术部，高级工程师</li>
-                                    <li>XXX年-XXX年，XXX研究所，计量中心，工程师</li>
-                                    <li>XXX年-XXX年，XXX企业，研发部，助理工程师</li>
+                                    <li>2025年至今，中国计量科学研究院，先进测量工程中心，助理研究员</li>
+                                    <li>2023年-2025年，中国计量科学研究院，先进测量工程中心，博士后</li>
                                 </ul>
                             </div>
                         </li>
@@ -99,8 +107,8 @@
                             <i class="fa fa-envelope-o text-primary mt-1 mr-3"></i>
                             <div>
                                 <strong>联系方式</strong>
-                                <p class="text-gray-600 mt-1">邮箱：test@institute.com</p>
-                                <p class="text-gray-600">办公室：XXX实验楼XXX室</p>
+                                <p class="text-gray-600 mt-1">邮箱：wanghaifeng@nim.ac.cn</p>
+                                <p class="text-gray-600">地址：北京市朝阳区北三环东路18号</p>
                             </div>
                         </li>
                     </ul>
@@ -191,7 +199,7 @@
             </ul>
         </section>
 
-        <!-- 发表论文页面（按年份降序排列） -->
+        <!-- 发表论文页面 -->
         <section id="students" class="page page-transition hidden">
             <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-border text-primary">发表论文</h2>
             
@@ -272,13 +280,23 @@
     <!-- 页脚 -->
     <footer class="bg-light py-6 border-t border-border">
         <div class="container mx-auto px-6 text-center text-gray-600 text-sm">
-            <p>© XXX年 个人主页 | 保留所有权利</p>
+            <p>Copyright © 2025 Haifeng Wang</p>
         </div>
     </footer>
 
     <script>
-        // 页面切换功能
+        // 访问计数功能
         document.addEventListener('DOMContentLoaded', function() {
+            // 从localStorage读取计数（首次访问默认为0）
+            let count = localStorage.getItem('visitCount') || 0;
+            // 每次访问递增1
+            count = parseInt(count) + 1;
+            // 保存更新后的计数
+            localStorage.setItem('visitCount', count);
+            // 显示在页面右上角
+            document.getElementById('counter').textContent = count;
+
+            // 页面切换功能（原有逻辑）
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page');
 
@@ -286,14 +304,11 @@
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // 移除所有导航项的活跃状态
                     navLinks.forEach(l => l.classList.remove('nav-item-active'));
-                    // 添加当前导航项的活跃状态
                     this.classList.add('nav-item-active');
                     
                     const targetPage = this.getAttribute('data-page');
                     
-                    // 隐藏所有页面
                     pages.forEach(page => {
                         page.style.opacity = '0';
                         setTimeout(() => {
@@ -301,7 +316,6 @@
                         }, 300);
                     });
                     
-                    // 显示目标页面
                     setTimeout(() => {
                         const activePage = document.getElementById(targetPage);
                         activePage.classList.remove('hidden');
@@ -310,7 +324,6 @@
                         }, 50);
                     }, 300);
                     
-                    // 滚动到顶部
                     window.scrollTo({
                         top: 0,
                         behavior: 'smooth'
