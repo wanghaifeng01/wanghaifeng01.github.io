@@ -34,25 +34,17 @@
             .nav-item-active {
                 border-bottom: 2px solid #4a90e2;
             }
-            .visit-counter {
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                z-index: 100; /* 确保在导航栏上方显示 */
+            .table-responsive {
+                overflow-x: auto;
             }
         }
     </style>
 </head>
 <body class="bg-white text-gray-800 font-sans">
-    <!-- 访问次数统计（右上角） -->
-    <div class="visit-counter bg-primary text-white px-4 py-2 rounded-lg shadow-md flex items-center text-sm md:text-base">
-        <i class="fa fa-eye mr-2"></i>
-        <span>访问次数: <span id="counter">0</span></span>
-    </div>
-
     <!-- 头部导航 -->
     <header class="fixed top-0 left-0 right-0 bg-white bg-opacity-95 shadow-sm z-50">
-        <div class="container mx-auto px-4 py-6">
+        <!-- 减小头部容器内边距，与内容区协调 -->
+        <div class="container mx-auto px-3 py-6">
             <h1 class="text-2xl md:text-3xl font-bold mb-6 md:mb-4 text-primary text-center">Haifeng Wang</h1>
             <nav class="flex justify-center flex-wrap gap-x-8 gap-y-2">
                 <a href="#" class="nav-link nav-item-active py-1 text-lg md:text-xl text-gray-600 hover:text-primary transition-colors duration-300" data-page="about">关于我</a>
@@ -63,8 +55,8 @@
         </div>
     </header>
 
-    <!-- 主要内容区 -->
-    <main class="max-w-4xl mx-auto px-6 sm:px-8 pt-36 pb-20 min-h-screen">
+    <!-- 主要内容区：增大最大宽度+减小内边距，减少两侧空白 -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-36 pb-20 min-h-screen">
         <!-- 关于我页面 -->
         <section id="about" class="page page-transition">
             <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-border text-primary">关于我</h2>
@@ -116,35 +108,127 @@
             </div>
         </section>
 
-        <!-- 测试项目页面 -->
+        <!-- 测试项目页面（按年份降序排列，表格展示） -->
         <section id="papers" class="page page-transition hidden">
             <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-border text-primary">测试项目</h2>
-            <div class="space-y-6">
-                <h3 class="text-xl font-semibold text-secondary">仪器概念验证测试</h3>
-                <ol class="list-decimal list-inside space-y-4 pl-4">
-                    <li class="p-3 bg-light hover:shadow-md transition-shadow duration-300">
-                        <strong>项目一：</strong>光神经网络器件性能验证测试，负责测试方案设计与动态特性分析，2024年
-                    </li>
-                    <li class="p-3 bg-light hover:shadow-md transition-shadow duration-300">
-                        <strong>项目二：</strong>智能成像芯片多参数测试，主导分辨率/动态范围测评体系构建，2023年
-                    </li>
-                    <li class="p-3 bg-light hover:shadow-md transition-shadow duration-300">
-                        <strong>项目三：</strong>忆阻器阻变特性动态测试，设计脉冲调制模式下稳定性测评方法，2022年
-                    </li>
-                </ol>
+            
+            <!-- 2024年项目 -->
+            <div class="mb-10">
+                <h3 class="text-xl font-semibold mb-4 text-secondary flex items-center">
+                    <i class="fa fa-calendar-o mr-2"></i>2024年
+                </h3>
+                <div class="table-responsive bg-white rounded-lg shadow-sm overflow-hidden">
+                    <table class="w-full text-sm">
+                        <!-- 表头 -->
+                        <thead class="bg-light text-gray-700 border-b border-border">
+                            <tr>
+                                <th class="py-3 px-4 text-left font-semibold">序号</th>
+                                <th class="py-3 px-4 text-left font-semibold">客户名称</th>
+                                <th class="py-3 px-4 text-left font-semibold">项目名称</th>
+                                <th class="py-3 px-4 text-left font-semibold">测试项</th>
+                                <th class="py-3 px-4 text-left font-semibold">测试内容</th>
+                                <th class="py-3 px-4 text-left font-semibold">备注</th>
+                            </tr>
+                        </thead>
+                        <!-- 表内容 -->
+                        <tbody class="divide-y divide-border">
+                            <tr class="hover:bg-light/50 transition-colors">
+                                <td class="py-3 px-4">1</td>
+                                <td class="py-3 px-4">光电子研究院</td>
+                                <td class="py-3 px-4">光神经网络器件性能验证测试</td>
+                                <td class="py-3 px-4">动态特性、稳定性</td>
+                                <td class="py-3 px-4">设计测试方案，分析器件动态响应特性与长期稳定性</td>
+                                <td class="py-3 px-4">完成概念验证报告</td>
+                            </tr>
+                            <tr class="hover:bg-light/50 transition-colors">
+                                <td class="py-3 px-4">2</td>
+                                <td class="py-3 px-4">智能计算实验室</td>
+                                <td class="py-3 px-4">光计算系统加速比与精度测试</td>
+                                <td class="py-3 px-4">加速比、计算精度</td>
+                                <td class="py-3 px-4">构建高维场景测试数据集，验证系统加速性能与计算精度</td>
+                                <td class="py-3 px-4">对比传统计算系统性能</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                <h3 class="text-xl font-semibold mt-8 text-secondary">系统级测试评价</h3>
-                <ol class="list-decimal list-inside space-y-4 pl-4">
-                    <li class="p-3 bg-light hover:shadow-md transition-shadow duration-300">
-                        <strong>项目一：</strong>光计算系统加速比与精度测试，构建高维场景测试数据集，2024年
-                    </li>
-                    <li class="p-3 bg-light hover:shadow-md transition-shadow duration-300">
-                        <strong>项目二：</strong>全光互连网络延迟测试，攻克光链路串扰影响分析，2023年
-                    </li>
-                    <li class="p-3 bg-light hover:shadow-md transition-shadow duration-300">
-                        <strong>项目三：</strong>图像质量自动化测评系统搭建，实现百GB级数据集筛查，2022年
-                    </li>
-                </ol>
+            <!-- 2023年项目 -->
+            <div class="mb-10">
+                <h3 class="text-xl font-semibold mb-4 text-secondary flex items-center">
+                    <i class="fa fa-calendar-o mr-2"></i>2023年
+                </h3>
+                <div class="table-responsive bg-white rounded-lg shadow-sm overflow-hidden">
+                    <table class="w-full text-sm">
+                        <thead class="bg-light text-gray-700 border-b border-border">
+                            <tr>
+                                <th class="py-3 px-4 text-left font-semibold">序号</th>
+                                <th class="py-3 px-4 text-left font-semibold">客户名称</th>
+                                <th class="py-3 px-4 text-left font-semibold">项目名称</th>
+                                <th class="py-3 px-4 text-left font-semibold">测试项</th>
+                                <th class="py-3 px-4 text-left font-semibold">测试内容</th>
+                                <th class="py-3 px-4 text-left font-semibold">备注</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-border">
+                            <tr class="hover:bg-light/50 transition-colors">
+                                <td class="py-3 px-4">1</td>
+                                <td class="py-3 px-4">成像技术公司</td>
+                                <td class="py-3 px-4">智能成像芯片多参数测试</td>
+                                <td class="py-3 px-4">分辨率、动态范围</td>
+                                <td class="py-3 px-4">主导构建分辨率与动态范围测评体系，完成芯片性能验证</td>
+                                <td class="py-3 px-4">形成行业测试规范建议</td>
+                            </tr>
+                            <tr class="hover:bg-light/50 transition-colors">
+                                <td class="py-3 px-4">2</td>
+                                <td class="py-3 px-4">网络技术研究所</td>
+                                <td class="py-3 px-4">全光互连网络延迟测试</td>
+                                <td class="py-3 px-4">传输延迟、串扰</td>
+                                <td class="py-3 px-4">测试光链路传输延迟，分析串扰对网络性能的影响</td>
+                                <td class="py-3 px-4">优化链路设计方案</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 2022年项目 -->
+            <div>
+                <h3 class="text-xl font-semibold mb-4 text-secondary flex items-center">
+                    <i class="fa fa-calendar-o mr-2"></i>2022年
+                </h3>
+                <div class="table-responsive bg-white rounded-lg shadow-sm overflow-hidden">
+                    <table class="w-full text-sm">
+                        <thead class="bg-light text-gray-700 border-b border-border">
+                            <tr>
+                                <th class="py-3 px-4 text-left font-semibold">序号</th>
+                                <th class="py-3 px-4 text-left font-semibold">客户名称</th>
+                                <th class="py-3 px-4 text-left font-semibold">项目名称</th>
+                                <th class="py-3 px-4 text-left font-semibold">测试项</th>
+                                <th class="py-3 px-4 text-left font-semibold">测试内容</th>
+                                <th class="py-3 px-4 text-left font-semibold">备注</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-border">
+                            <tr class="hover:bg-light/50 transition-colors">
+                                <td class="py-3 px-4">1</td>
+                                <td class="py-3 px-4">微电子实验室</td>
+                                <td class="py-3 px-4">忆阻器阻变特性动态测试</td>
+                                <td class="py-3 px-4">阻变稳定性、响应速度</td>
+                                <td class="py-3 px-4">设计脉冲调制模式，测试忆阻器在不同条件下的阻变稳定性</td>
+                                <td class="py-3 px-4">应用于神经网络硬件加速</td>
+                            </tr>
+                            <tr class="hover:bg-light/50 transition-colors">
+                                <td class="py-3 px-4">2</td>
+                                <td class="py-3 px-4">图像研究院</td>
+                                <td class="py-3 px-4">图像质量自动化测评系统搭建</td>
+                                <td class="py-3 px-4">清晰度、噪声、色彩还原</td>
+                                <td class="py-3 px-4">搭建自动化测评平台，实现百GB级数据集筛查与质量评分</td>
+                                <td class="py-3 px-4">通过行业认证测试</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -277,26 +361,16 @@
         </section>
     </main>
 
-    <!-- 页脚 -->
+    <!-- 页脚：减小内边距，与整体协调 -->
     <footer class="bg-light py-6 border-t border-border">
-        <div class="container mx-auto px-6 text-center text-gray-600 text-sm">
+        <div class="container mx-auto px-4 text-center text-gray-600 text-sm">
             <p>Copyright © 2025 Haifeng Wang</p>
         </div>
     </footer>
 
     <script>
-        // 访问计数功能
+        // 页面切换功能
         document.addEventListener('DOMContentLoaded', function() {
-            // 从localStorage读取计数（首次访问默认为0）
-            let count = localStorage.getItem('visitCount') || 0;
-            // 每次访问递增1
-            count = parseInt(count) + 1;
-            // 保存更新后的计数
-            localStorage.setItem('visitCount', count);
-            // 显示在页面右上角
-            document.getElementById('counter').textContent = count;
-
-            // 页面切换功能（原有逻辑）
             const navLinks = document.querySelectorAll('.nav-link');
             const pages = document.querySelectorAll('.page');
 
